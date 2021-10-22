@@ -1,0 +1,37 @@
+﻿@page
+@model Presentacion.Pages.Cmunicipio.IndexModel
+@{
+    ViewData["Title"] = "Municipio";
+}
+
+<H1>Listado de Municipio</H1>
+
+<a asp-page="Crear" class="btn btn-secondary">Registar Municipio</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Nombre </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Municipios)
+    {
+        <tr>
+            <td> @item.Id </td>
+            <td> @item.Nombre </td>
+            <td>
+                <a asp-area="" asp-page="/CEscenario/Crear" class="btn btn-info">Escenarios</a>
+                <a>  -  </a>
+                <a asp-page="./Editar" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                <a>  -  </a>
+                <a asp-page="./Detalles" asp-route-id="@item.Id" class="btn btn-success">Detalles</a>
+                <a>  -  </a>
+                <a asp-page="./Eliminar" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+
+</table>
